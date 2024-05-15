@@ -1,0 +1,11 @@
+.dropdown-content {
+  position: absolute;
+}
+
+.dropdown-content.slide-right {
+  right: -100%; /* Initially off-screen */
+}
+
+.dropdown-content.slide-right.active {
+  right: 0; /* Slides in from right */
+}
