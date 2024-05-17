@@ -4,22 +4,30 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const BookCard = ({ book }) => {
-  const { title, author, genre, publication_date } = book;
+  const { Author, Category, ISBN, PublicationDate, Publisher, Title } = book;
   const [imgUrl, setImgUrl] = useState("");
 
-  const encodedTitle = encodeURIComponent(title);
-  const encodedAuthor = encodeURIComponent(author);
+  const encodedTitle = encodeURIComponent(Title);
+  const encodedAuthor = encodeURIComponent(Author);
 
   useEffect(() => {
-    axios
-      .get(
-        `https://www.googleapis.com/books/v1/volumes?q=${encodedTitle}+inauthor:${encodedAuthor}&key=AIzaSyBlOvlqs8xlUpnJ92cWTTkSTAuKyQ3kP_w`
-      )
-      .then((res) => {
-        // console.log(res.data);
-        setImgUrl(res.data.items[0].volumeInfo.imageLinks.thumbnail);
+    fetch(
+      `https://www.googleapis.com/books/v1/volumes?q=${encodedTitle}+inauthor:${encodedAuthor}&key=${import.meta.env.VITE_API_KEY}`
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
       })
-      .catch((err) => console.error(err));
+      .then((data) => {
+        console.log(data);
+        const imgUrl = data.items[0].volumeInfo.imageLinks.thumbnail;
+        setImgUrl(imgUrl);
+      })
+      .catch((error) => {
+        console.error("There was a problem with the fetch operation:", error);
+      });
   }, [encodedAuthor, encodedTitle, setImgUrl]);
 
   const formatDate = (dateString) => {
@@ -44,13 +52,13 @@ const BookCard = ({ book }) => {
       </figure>
       <div className="card-body">
         <h2 className="card-title items-start">
-          {title}
-          <div className="badge badge-secondary mt-1">{genre}</div>
+          {Title}
+          <div className="badge badge-secondary mt-1">{Category}</div>
         </h2>
-        <p>{author}</p>
+        <p>{Author}</p>
         <div className="card-actions items-center justify-between">
           <div className="badge badge-outline">
-            Published: {formatDate(publication_date)}
+            Published: {formatDate(PublicationDate)}
           </div>
           <div>
             <Link>
