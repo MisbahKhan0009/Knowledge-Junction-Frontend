@@ -6,6 +6,7 @@ import Signin from "../../Pages/UserHandle/Signin/Signin";
 import Signup from "../../Pages/UserHandle/Signup/Signup";
 import BookCollection from "../../Pages/Books/BookCollection/BookCollection";
 import Developers from "../../Pages/Developers/Developers";
+import SingleBooks from "../../Pages/Books/SingleBook/SingleBooks";
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
       {
         path: "/books",
         element: <BookCollection />,
+      },
+      {
+        path: `/book/:ISBN`,
+        element: <SingleBooks />,
       },
       {
         path: "/signin",

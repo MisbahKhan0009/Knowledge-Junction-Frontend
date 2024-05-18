@@ -12,7 +12,9 @@ const BookCard = ({ book }) => {
 
   useEffect(() => {
     fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${encodedTitle}+inauthor:${encodedAuthor}&key=${import.meta.env.VITE_API_KEY}`
+      `https://www.googleapis.com/books/v1/volumes?q=${encodedTitle}+inauthor:${encodedAuthor}&key=${
+        import.meta.env.VITE_API_KEY
+      }`
     )
       .then((response) => {
         if (!response.ok) {
@@ -61,7 +63,7 @@ const BookCard = ({ book }) => {
             Published: {formatDate(PublicationDate)}
           </div>
           <div>
-            <Link>
+            <Link to={`/books/${ISBN}`}>
               <BsArrowRightCircle className="font-thin text-2xl" />
             </Link>
           </div>
