@@ -1,5 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { BiArrowToRight, BiStar } from "react-icons/bi";
+import { BsFillStarFill, BsArrowRightCircle } from "react-icons/bs";
+import { FaArrowRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const BookTableData = ({ book }) => {
   const [imgUrl, setImgUrl] = useState("");
@@ -12,6 +16,7 @@ const BookTableData = ({ book }) => {
     Publisher,
     Title,
     Language,
+    Rating,
   } = book;
 
   function replaceSpacesWithPlus(text) {
@@ -22,6 +27,7 @@ const BookTableData = ({ book }) => {
 
   const encodedTitle = encodeURIComponent(Title);
   const encodedAuthor = encodeURIComponent(Author);
+
   useEffect(() => {
     fetch(
       `https://www.googleapis.com/books/v1/volumes?q=${encodedTitle}+inauthor:${encodedAuthor}&key=${
@@ -69,24 +75,31 @@ const BookTableData = ({ book }) => {
           </div>
           <div>
             <div className="text-xl" title={Title}>
-              {Title.length > 40 ? `${Title.substring(0, 40)}...` : Title}
+              <Link to={`/book/${ISBN}`}>
+                {Title.length > 40 ? `${Title.substring(0, 40)}...` : Title}
+              </Link>
             </div>
             <div className="font-light text-lg opacity-50">{Author}</div>
           </div>
         </div>
       </td>
-      <td>
+      <td className={"text-center"}>
         <span className="text-lg">{Publisher}</span>
         <br />
         <span className="badge badge-primary ">{Category}</span>
       </td>
-      <td>Purple</td>
-      <th>
-        <button className="btn btn-ghost btn-xs">details</button>
-      </th>
-      <th>
-        <button className="btn btn-ghost btn-xs">details</button>
-      </th>
+      <td className="text-lg text-center">{formatDate(PublicationDate)}</td>
+      <td className="text-center">
+        <p className="text-lg text-primary  flex flex-1 justify-center items-center">
+          {Rating}
+          <BsFillStarFill className="ms-1" />
+        </p>
+      </td>
+      <td className="text-center">
+        <Link to={`/book/${ISBN}`}>
+          <BsArrowRightCircle className="text-2xl" />
+        </Link>
+      </td>
     </tr>
   );
 };

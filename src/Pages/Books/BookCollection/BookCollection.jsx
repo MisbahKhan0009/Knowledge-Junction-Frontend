@@ -33,7 +33,7 @@ const BookCollection = () => {
             <tr>
               <th>Title & Author</th>
               <th>Publisher & Category</th>
-              <th>Language</th>
+              <th>Publication Date</th>
               <th>Rating</th>
               <th>Details</th>
             </tr>
@@ -41,7 +41,7 @@ const BookCollection = () => {
           <tbody>
             {/* row 1 */}
             {books.map((book) => (
-              <BookTableData key={book.ISBN} book={book} />
+              <BookTableData key={book.ISBN} book={book}  />
             ))}
           </tbody>
           {/* foot */}
