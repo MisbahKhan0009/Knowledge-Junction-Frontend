@@ -3,6 +3,7 @@ import {
   FaSquareXTwitter,
   FaSquareFacebook,
   FaSquareInstagram,
+  FaSquareGithub,
 } from "react-icons/fa6";
 
 import { Link } from "react-router-dom";
@@ -15,19 +16,12 @@ const Footer = () => {
         <Link to={"/developers"} className="link link-hover">
           Developers
         </Link>
-        <Link className="link link-hover">Jobs</Link>
-        <Link className="link link-hover">Seminars</Link>
       </nav>
       <nav>
         <div className="grid grid-flow-col gap-4">
-          <a>
-            <FaSquareXTwitter className="text-2xl md:text-3xl lg:text-4xl" />
-          </a>
-          <a>
-            <FaSquareFacebook className="text-2xl md:text-3xl lg:text-4xl" />
-          </a>
-          <a>
-            <FaSquareInstagram className="text-2xl md:text-3xl lg:text-4xl" />
+         
+          <a href="https://github.com/MisbahKhan0009/Knowledge-Junction-Frontend">
+            <FaSquareGithub className="text-2xl md:text-3xl lg:text-4xl" />
           </a>
         </div>
       </nav>
