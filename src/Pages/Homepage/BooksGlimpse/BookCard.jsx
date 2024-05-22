@@ -12,7 +12,7 @@ const BookCard = ({ book }) => {
 
   useEffect(() => {
     fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${encodedTitle}+inauthor:${encodedAuthor}&key=${
+      `https://www.googleapis.com/books/v1/2volumes?q=${encodedTitle}+inauthor:${encodedAuthor}&key=${
         import.meta.env.VITE_API_KEY
       }`
     )

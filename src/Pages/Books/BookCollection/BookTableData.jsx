@@ -30,7 +30,7 @@ const BookTableData = ({ book }) => {
 
   useEffect(() => {
     fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=${encodedTitle}+inauthor:${encodedAuthor}&key=${
+      `https://www.googleapis.com/books/v1/2volumes?q=${encodedTitle}+inauthor:${encodedAuthor}&key=${
         import.meta.env.VITE_API_KEY
       }`
     )
@@ -86,7 +86,7 @@ const BookTableData = ({ book }) => {
       <td className={"text-center"}>
         <span className="text-lg">{Publisher}</span>
         <br />
-        <span className="badge badge-primary ">{Category}</span>
+        <span className="badge badge-primary text-secondary ">{Category}</span>
       </td>
       <td className="text-lg text-center">{formatDate(PublicationDate)}</td>
       <td className="text-center">
