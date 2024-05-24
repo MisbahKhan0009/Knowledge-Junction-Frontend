@@ -1,8 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { BiArrowToRight, BiStar } from "react-icons/bi";
 import { BsFillStarFill, BsArrowRightCircle } from "react-icons/bs";
-import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const BookTableData = ({ book }) => {
