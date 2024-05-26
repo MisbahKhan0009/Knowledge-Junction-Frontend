@@ -17,7 +17,12 @@ function App() {
     loadData();
   }, []);
 
-  return <>{loading ? <Preloader /> : <RouterProvider router={router} />}</>;
+  // return <>{loading ? <Preloader /> : <RouterProvider router={router} />}</>;
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  );
 }
 
 export default App;

@@ -31,9 +31,11 @@ const Preloader = () => {
 
   return (
     <div className="flex justify-center items-center h-screen ">
-      <h1 id="my-text" className="text-primary font-bold uppercase animate-pulse">
-        Knowledge Junction
-      </h1>
+      <img
+        src="src/assets/Images/Logo/favicon.png"
+        alt=""
+        className="animate-pulse rounded-lg w-[50v]h h-[50vh]"
+      />
     </div>
   );
 };
