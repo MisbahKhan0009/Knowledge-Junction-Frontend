@@ -48,10 +48,11 @@ const Signup = () => {
           body: JSON.stringify({
             FullName: formData.fullName,
             ContactInformation: formData.contactInformation,
-            MembershipStatus: formData.membershipStatus,
+            MembershipStatus: "Active",
             Training: formData.training,
             HighestDegree: formData.highestDegree,
             Awards: formData.awards,
+            MembershipExpire: "2025-12-31", 
             Password: formData.password,
           }),
         });
