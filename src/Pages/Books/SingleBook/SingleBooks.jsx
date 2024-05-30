@@ -17,7 +17,7 @@ const SingleBooks = () => {
       .get(`http://localhost:8080/books/${ISBN}`)
       .then((res) => {
         setBook(res.data);
-        // console.log(res.data);
+        console.log(res.data);
       })
       .catch((err) => console.error(err));
   }, [ISBN]);
@@ -92,13 +92,85 @@ const SingleBooks = () => {
           </h2>
           <h2>
             <span className="font-bold">Author: </span>
-            {book.Author}
+            <a
+              className=" cursor-pointer hover:underline"
+              onClick={() => document.getElementById("authorModal").showModal()}
+            >
+              {book.Author}
+            </a>
+            <dialog id="authorModal" className="modal text-secondary">
+              <div className="modal-box  bg-primary">
+                <h3 className="font-thin text-4xl">{book.Author}</h3>
+                <p className="py-4">{book.AuthorBiography}</p>
+                <p className="py-4">
+                  <span className="font-bold">Nationality:</span>{" "}
+                  {book.AuthorNationality}
+                </p>
+                <div className="modal-action">
+                  <form method="dialog">
+                    <button className="btn text-xl font-normal">Close</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
           </h2>
           <h2>
-            <span className="font-bold">Category: </span> {book.Category}
+            <span className="font-bold">Publisher: </span>
+            <a
+              className=" cursor-pointer hover:underline"
+              onClick={() =>
+                document.getElementById("publisherModal").showModal()
+              }
+            >
+              {book.Publisher}
+            </a>
+            <dialog id="publisherModal" className="modal text-secondary">
+              <div className="modal-box  bg-primary">
+                <h3 className="font-thin text-4xl">{book.Publisher}</h3>
+                <p className="py-4">
+                  <span className="font-bold">Contact Information: </span>
+                  {book.PublisherContactInformation}
+                </p>
+                <p className="py-4">
+                  <span className="font-bold">Location:</span>{" "}
+                  {book.PublisherLocation}
+                </p>
+                <div className="modal-action">
+                  <form method="dialog">
+                    <button className="btn text-xl font-normal">Close</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
           </h2>
           <h2>
-            <span className="font-bold">Publisher: </span> {book.Publisher}
+            <span className="font-bold">Category: </span>
+            <a
+              className=" cursor-pointer hover:underline"
+              onClick={() =>
+                document.getElementById("categoryModal").showModal()
+              }
+            >
+              {book.Category}
+            </a>
+            <dialog id="categoryModal" className="modal text-secondary">
+              <div className="modal-box  bg-primary">
+                <h3 className="font-thin text-4xl">{book.Category}</h3>
+                <p className="py-4">
+                  <span className="font-bold">Category Description: </span>
+                  {book.CategoryDescription}
+                </p>
+                <div className="modal-action">
+                  <form method="dialog">
+                    <button className="btn text-xl font-normal">Close</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
+          </h2>
+          <h2>
+            <span className="font-bold">Language: </span>
+            {book.Language}
           </h2>
           <h2>
             <span className="font-bold">Publication Date: </span>

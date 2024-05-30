@@ -31,11 +31,12 @@ const Preloader = () => {
 
   return (
     <div className="flex justify-center items-center h-screen ">
-      <img
-        src="src/assets/Images/Logo/favicon.png"
-        alt=""
-        className="animate-pulse rounded-lg w-[50v]h h-[50vh]"
-      />
+      <span className="loading loading-infinity  loading-lg"></span>
+      {/* //   <img */}
+      {/* //     src="src/assets/Images/Logo/favicon.png"
+    //     alt=""
+    //     className="animate-pulse rounded-lg w-[50v]h h-[50vh]"
+    //   /> */}
     </div>
   );
 };

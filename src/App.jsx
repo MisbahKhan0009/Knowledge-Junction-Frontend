@@ -3,6 +3,7 @@ import "./App.css";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./Routes/Routes/Routes";
 import Preloader from "./Pages/Loaders/Preloader/Preloader";
+import { Toaster } from "sonner";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -17,12 +18,19 @@ function App() {
     loadData();
   }, []);
 
-  // return <>{loading ? <Preloader /> : <RouterProvider router={router} />}</>;
   return (
     <>
-      <RouterProvider router={router} />
+      {" "}
+      <Toaster richColors />
+      {loading ? <Preloader /> : <RouterProvider router={router} />}
     </>
   );
+  // return (
+  //   <>
+  //     <Toaster richColors />
+  //     <RouterProvider router={router} />
+  //   </>
+  // );
 }
 
 export default App;

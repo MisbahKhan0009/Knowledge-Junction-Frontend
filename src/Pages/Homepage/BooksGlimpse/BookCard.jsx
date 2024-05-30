@@ -63,7 +63,7 @@ const BookCard = ({ book }) => {
             Published: {formatDate(PublicationDate)}
           </div>
           <div>
-            <Link to={`/books/${ISBN}`}>
+            <Link to={`/book/${ISBN}`}>
               <BsArrowRightCircle className="font-thin text-2xl" />
             </Link>
           </div>

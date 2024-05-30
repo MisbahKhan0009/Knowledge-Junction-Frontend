@@ -17,9 +17,7 @@ const BookTableData = ({ book }) => {
     Rating,
   } = book;
 
-  function replaceSpacesWithPlus(text) {
-    return text.split(" ").join("+");
-  }
+  
   //   const encodedTitle = replaceSpacesWithPlus(Title);
   //   const encodedAuthor = replaceSpacesWithPlus(Author);
 
