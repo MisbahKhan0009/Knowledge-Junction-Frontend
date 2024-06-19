@@ -8,7 +8,9 @@ const BooksGlimpse = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/books/")
+      .get(
+        "https://knowledge-junction-backend-4q201zreq-misbahkhan0009s-projects.vercel.app/books/"
+      )
       .then((res) => {
         setBooks(res.data);
         console.log(res.data);

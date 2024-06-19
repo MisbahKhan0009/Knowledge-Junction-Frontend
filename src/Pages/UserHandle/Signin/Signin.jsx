@@ -32,7 +32,9 @@ const Signin = () => {
 
   useEffect(() => {
     if (role === "member") {
-      fetch(`http://localhost:8080/members/${id}`)
+      fetch(
+        `https://knowledge-junction-backend-4q201zreq-misbahkhan0009s-projects.vercel.app/members/${id}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setUser(data);
@@ -42,7 +44,9 @@ const Signin = () => {
         })
         .catch((err) => console.error(err));
     } else if (role === "librarian") {
-      fetch(`http://localhost:8080/librarians/${id}`)
+      fetch(
+        `https://knowledge-junction-backend-4q201zreq-misbahkhan0009s-projects.vercel.app/librarians/${id}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setUser(data);
@@ -52,7 +56,9 @@ const Signin = () => {
         })
         .catch((err) => console.error(err));
     } else if (role === "employee") {
-      fetch(`http://localhost:8080/book-issuer-receivers/${id}`)
+      fetch(
+        `https://knowledge-junction-backend-4q201zreq-misbahkhan0009s-projects.vercel.app/book-issuer-receivers/${id}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setUser(data);

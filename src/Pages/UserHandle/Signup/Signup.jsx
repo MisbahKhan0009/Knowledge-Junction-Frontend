@@ -40,22 +40,25 @@ const Signup = () => {
 
     if (role === "member") {
       try {
-        const response = await fetch("http://localhost:8080/signup/member", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            FullName: formData.fullName,
-            ContactInformation: formData.contactInformation,
-            MembershipStatus: "Active",
-            Training: formData.training,
-            HighestDegree: formData.highestDegree,
-            Awards: formData.awards,
-            MembershipExpire: "2025-12-31", 
-            Password: formData.password,
-          }),
-        });
+        const response = await fetch(
+          "https://knowledge-junction-backend-4q201zreq-misbahkhan0009s-projects.vercel.app/signup/member",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              FullName: formData.fullName,
+              ContactInformation: formData.contactInformation,
+              MembershipStatus: "Active",
+              Training: formData.training,
+              HighestDegree: formData.highestDegree,
+              Awards: formData.awards,
+              MembershipExpire: "2025-12-31",
+              Password: formData.password,
+            }),
+          }
+        );
         const data = await response.json();
         toast.success(
           `Member signed up successfully, Your MemberID: ${data.memberId}`
@@ -65,17 +68,20 @@ const Signup = () => {
       }
     } else if (role === "librarian") {
       try {
-        const response = await fetch("http://localhost:8080/signup/librarian", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            FullName: formData.fullName,
-            ContactInformation: formData.contactInformation,
-            Password: formData.password,
-          }),
-        });
+        const response = await fetch(
+          "https://knowledge-junction-backend-4q201zreq-misbahkhan0009s-projects.vercel.app/signup/librarian",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              FullName: formData.fullName,
+              ContactInformation: formData.contactInformation,
+              Password: formData.password,
+            }),
+          }
+        );
         const data = await response.json();
         toast.success(
           `Librarian signed up successfully, Your LibrarianID: ${data.librarianId}`
@@ -85,17 +91,20 @@ const Signup = () => {
       }
     } else if (role === "employee") {
       try {
-        const response = await fetch("http://localhost:8080/signup/employee", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            FullName: formData.fullName,
-            ContactInformation: formData.contactInformation,
-            Password: formData.password,
-          }),
-        });
+        const response = await fetch(
+          "https://knowledge-junction-backend-4q201zreq-misbahkhan0009s-projects.vercel.app/signup/employee",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              FullName: formData.fullName,
+              ContactInformation: formData.contactInformation,
+              Password: formData.password,
+            }),
+          }
+        );
         const data = await response.json();
 
         toast.success(

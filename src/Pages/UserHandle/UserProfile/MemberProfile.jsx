@@ -29,7 +29,7 @@ const MemberProfile = () => {
     const fetchFines = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/fines/${MemberID}`
+          `https://knowledge-junction-backend-4q201zreq-misbahkhan0009s-projects.vercel.app/fines/${MemberID}`
         );
         setFines(response.data);
       } catch (error) {

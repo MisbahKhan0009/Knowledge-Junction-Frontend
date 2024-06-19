@@ -14,7 +14,9 @@ const SingleBooks = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/books/${ISBN}`)
+      .get(
+        `https://knowledge-junction-backend-4q201zreq-misbahkhan0009s-projects.vercel.app/books/${ISBN}`
+      )
       .then((res) => {
         setBook(res.data);
         console.log(res.data);
@@ -24,7 +26,9 @@ const SingleBooks = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/shelf/${ISBN}`)
+      .get(
+        `https://knowledge-junction-backend-4q201zreq-misbahkhan0009s-projects.vercel.app/shelf/${ISBN}`
+      )
       .then((res) => {
         setShelvesData(res.data.shelves); // Set shelves data array
         setBookCopiesData(res.data.bookCopies); // Set book copies data array

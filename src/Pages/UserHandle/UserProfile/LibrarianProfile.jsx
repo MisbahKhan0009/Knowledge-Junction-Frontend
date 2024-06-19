@@ -18,7 +18,7 @@ const LibrarianProfile = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/delete-book/${ISBN}`,
+        `https://knowledge-junction-backend-4q201zreq-misbahkhan0009s-projects.vercel.app/delete-book/${ISBN}`,
         {
           method: "DELETE",
           headers: {
@@ -56,7 +56,7 @@ const LibrarianProfile = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/update-books/${ISBN}`,
+        `https://knowledge-junction-backend-4q201zreq-misbahkhan0009s-projects.vercel.app/update-books/${ISBN}`,
         {
           method: "PUT",
           headers: {
@@ -92,13 +92,16 @@ const LibrarianProfile = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:8080/add-book", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(bookData),
-      });
+      const response = await fetch(
+        "https://knowledge-junction-backend-4q201zreq-misbahkhan0009s-projects.vercel.app/add-book",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(bookData),
+        }
+      );
 
       if (response.ok) {
         toast.success("Book added successfully");

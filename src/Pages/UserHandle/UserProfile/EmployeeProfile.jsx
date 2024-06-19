@@ -18,7 +18,9 @@ const EmployeeProfile = () => {
 
     // Fetch fine installments data
     axios
-      .get(`http://localhost:8080/fine-installments/${issuerReceiverID}`)
+      .get(
+        `https://knowledge-junction-backend-4q201zreq-misbahkhan0009s-projects.vercel.app/fine-installments/${issuerReceiverID}`
+      )
       .then((response) => {
         setFineInstallments(response.data);
       })

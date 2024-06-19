@@ -12,7 +12,9 @@ const BookCollection = () => {
   // Fetch books from the API
   useEffect(() => {
     axios
-      .get("http://localhost:8080/books/")
+      .get(
+        "https://knowledge-junction-backend-4q201zreq-misbahkhan0009s-projects.vercel.app/books/"
+      )
       .then((res) => {
         setBooks(res.data);
       })
@@ -47,16 +49,17 @@ const BookCollection = () => {
       </h1>
       <div className="w-[85%] mx-auto my-24">
         <div className="flex justify-end items-center mb-10">
-          <p className="font-thin text-2xl text-primary mr-3">Search by title</p>
-        <input
-          type="text"
-          
-          placeholder="Search by Title"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="input  input-bordered bg-white text-primary  w-1/4"
-          // ml-[920px]
-        />
+          <p className="font-thin text-2xl text-primary mr-3">
+            Search by title
+          </p>
+          <input
+            type="text"
+            placeholder="Search by Title"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="input  input-bordered bg-white text-primary  w-1/4"
+            // ml-[920px]
+          />
         </div>
         <div className="overflow-x-auto">
           <table className="table">
